@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EnquiryService } from '../services/enquiry.service';
+import { EnquiryService } from '../Services/enquiry.service';
 
 @Component({
   selector: 'app-details',
@@ -15,10 +15,18 @@ export class DetailsComponent implements OnInit {
 constructor(private enquiryService:EnquiryService ) 
 {
 
-this.details=enquiryService.getDetails();
+//this.details=enquiryService.getDetails();
+enquiryService.getDetails()
+  .subscribe((data:any)=>{
+    //console.log(data)
+    this.details=data;
+   
+ 
+  });
+}
 
- }
 
+ 
 
 
   ngOnInit(): void {

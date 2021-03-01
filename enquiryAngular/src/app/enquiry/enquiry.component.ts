@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { EnquiryService } from '../services/enquiry.service';
+import { EnquiryService } from '../Services/enquiry.service';
 
 @Component({
   selector: 'app-enquiry',
@@ -15,7 +15,7 @@ export class EnquiryComponent  implements OnInit {
 
   
     name:["" ,[Validators.required]],
-    phoneNo:[  ,[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+    phoneNo:["" ,[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
     email:["" ,[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
     message:["" ,[Validators.required,Validators.minLength(5)]]
   
@@ -49,24 +49,19 @@ submit(){
               const phoneNo=this.enquiryForm.value.phoneNo;
               const email=this.enquiryForm.value.email;
               const message=this.enquiryForm.value.message;
+              alert(phoneNo)
               
-             // alert(name);
-              //alert(phoneNo);
-              //alert(email);
-              //alert(message);
+             this.enquiryService.add(name,phoneNo,email,message)
+              .subscribe((data:any)=>{
 
-            const user= this.enquiryService.add(name,phoneNo,email,message);
-            if(user==1)
-            {
-             
-              alert("message sent successfully")
-             // swal:any=("Good job!", "You clicked the button!", "success");
+              alert(data.message)
+              //console.log(data)
               this.router.navigateByUrl("/details");
-              //window.location.href="userhome.html"
-            }
-              
 
-    }
+              });
+           
+
+         }
   }
 
 
