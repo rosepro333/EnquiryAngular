@@ -7,12 +7,14 @@ import { EnquiryComponent } from './enquiry/enquiry.component';
 import { DetailsComponent } from './details/details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileeditComponent } from './profileedit/profileedit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnquiryComponent,
-    DetailsComponent
+    DetailsComponent,
+    ProfileeditComponent
   ],
   imports: [
     BrowserModule,

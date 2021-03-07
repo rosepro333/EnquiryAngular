@@ -6,17 +6,17 @@ const User = require('../models/user');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //GIVE DATA TO DATABASE...................
-  const user=new User(
-   {
+  // const user=new User(
+  //  {
       
     
-    name:"rosemary",
-    phoneNo:"2222225656",
-    email:"rose@gmail.com",
-    message:"haiii"
+  //   name:"rosemary",
+  //   phoneNo:"3311135656",
+  //   email:"rose@gmail.com",
+  //   message:"haiii"
       
-   })
-   user.save();
+  //  })
+  //  user.save();
   
  // res.render('index', { title: 'Express' });
 });
@@ -37,16 +37,45 @@ router.post('/add', function(req, res, next) {
    
 });
 
-//details history.....................................................
-router.get('/details' ,function(req, res) {
+//details ....................................................
+ router.get('/details' ,function(req, res) {
+   enquiryService.getDetails()
+     .then(users=>{
+     res.send(users);
+
+      });
+   });
+ 
+//..............get user profile.........
+
+router.get('/profile/:id', function(req, res) {
+   console.log(req.params.id)
+   enquiryService.getUser(req.params.id)
+          .then(user=>{
+            
+               res.send(
+                   user
+               );
+
+            });
+    
+  }); 
 
   
-   const message=enquiryService.getDetails();
-  // console.log(message)
-   res.status(200).send(message);
-   
+//PROFILE UPDATION...............
+ router.put('/update/:id', function(req, res) {
+   console.log(req.params.id,req.body)
+  enquiryService.updateUser(req.params.id,req.body)
+  .then(user=>{
+  //  console.log(user)
+        res.send({message:"Profile  updated successfully"});
+
+      });
 
  });
+
+
+
 
 
 

@@ -49,11 +49,11 @@ submit(){
               const phoneNo=this.enquiryForm.value.phoneNo;
               const email=this.enquiryForm.value.email;
               const message=this.enquiryForm.value.message;
-              alert(phoneNo)
-              
-             this.enquiryService.add(name,phoneNo,email,message)
-              .subscribe((data:any)=>{
+             // alert(phoneNo)
 
+             this.enquiryService.add(name,phoneNo,email,message)
+             .subscribe((data:any)=>{
+          
               alert(data.message)
               //console.log(data)
               this.router.navigateByUrl("/details");
@@ -63,6 +63,9 @@ submit(){
 
          }
   }
+
+  
+   
 
 
 }

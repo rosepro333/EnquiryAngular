@@ -1,7 +1,7 @@
 .background-image{
     text-align: center;
 
-    background:linear-gradient(rgba(4, 2, 7, 0.89),rgba(0, 0, 50, 0.596)), url("/assets/enq1.jpg");
+    background:linear-gradient(rgba(4, 2, 7, 0.89),rgba(0, 0, 50, 0.596)), url("/assets/enq2.jpg");
     /* linear-gradient(rgb(82, 69, 69),rgb(7, 7, 8)), */
     
     background-repeat: no-repeat;
@@ -46,7 +46,7 @@ input{
 }
 
 form .submit{
-    background: rgba(226, 148, 3, 0.959);
+    background: rgba(12, 202, 107, 0.959);
     border-color: transparent;
     color: white;
     font-size: 20px;
@@ -57,7 +57,7 @@ form .submit{
 }
 
 form  .submit:hover{
-    background-color: rgb(243, 123, 11);
+    background-color:rgba(12, 202, 107, 0.959);
     cursor: pointer;
 
 }
